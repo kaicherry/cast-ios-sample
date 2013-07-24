@@ -329,7 +329,7 @@ double playPositionWhenSwitch = 0.0;
 // time.
 - (void)updateProgressSlider {
   if (localPlay) {
-    if (self.player) {
+    if (self.player && CMTimeGetSeconds([self.playerItem duration]) > 0) {
       self.playProgressSlider.maximumValue =
           CMTimeGetSeconds([self.playerItem duration]);
       self.playProgressSlider.value =
